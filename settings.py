@@ -10,7 +10,6 @@ class Config:
         pwd,
         url,
         port,
-        secret_key,
         database,
         collections,
         *args,
@@ -21,7 +20,6 @@ class Config:
         self.pwd = pwd
         self.url = url
         self.port = port
-        self.secret_key = secret_key
         self.database = database
         self.collections = collections
 
@@ -41,6 +39,8 @@ with env.prefixed("BKP_MONGO_"):
         env.read_env(p / ".env.staging", recurse=False)
     elif ENV == "development":
         env.read_env(p / ".env.development", recurse=False)
+    elif ENV == "test":
+        env.read_env(p / ".env.test", recurse=False)
     else:
         pass
 
@@ -48,6 +48,5 @@ with env.prefixed("BKP_MONGO_"):
     Cfg.pwd = env("PWD")
     Cfg.url = env("URL")
     Cfg.port = env.int("PORT", 27017)
-    Cfg.secret_key = env("SECRET_KEY")
     Cfg.database = env("DATABASE")
     Cfg.collections = env("COLLECTIONS")

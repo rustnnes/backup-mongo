@@ -1,4 +1,8 @@
 {
-    "python.pythonPath": ".venv/bin/python3",
-    "python.formatting.provider": "black"
+  "python.pythonPath": ".venv/bin/python3",
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.rulers": [80]
+  },
+  "python.formatting.blackArgs": ["--line-length", "80"]
 }

@@ -13,6 +13,5 @@ for collection in Cfg.collections.split(" "):
     collections.append(database[collection])
 
 for collection in collections:
-    print(collection.full_name)
     for doc in collection.find():
         pprint(doc)
